@@ -19,7 +19,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> authenticateUser(@Valid @RequestBody LoginRequest loginRequest){
-        LoginResponse loginResponse = authService.authenticateUser(loginRequest);
+        LoginResponse loginResponse = authService.authenticate(loginRequest);
         return ResponseEntity.ok(loginResponse);
     }
 }

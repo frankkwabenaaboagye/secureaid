@@ -4,6 +4,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,8 @@ import java.util.function.Function;
 @Service
 public class JwtService {
 
-    @Value("${JWTSECRET}")
+//    @Value("${secureaid.jwt.JWTSECRET}")
+    @Value("${JWTSECRET}")  // from the aws secret manager
     private String secretKey;
 
     @Value("${secureaid.jwt.expiration-ms}")
@@ -77,5 +79,11 @@ public class JwtService {
 
     private Date extractExpiration(String token) {
         return extractClaim(token, Claims::getExpiration);
+    }
+
+    @PostConstruct
+    private void postConstruct() {
+        System.out.println("secretKey -> " + secretKey);
+
     }
 }
