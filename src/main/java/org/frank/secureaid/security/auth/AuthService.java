@@ -64,7 +64,7 @@ public class AuthService {
 
 
         }
-        throw new UsernameNotFoundException("User not found after authentication success (should not happen)")
+        throw new UsernameNotFoundException("User not found after authentication success (should not happen)");
     }
 
 
