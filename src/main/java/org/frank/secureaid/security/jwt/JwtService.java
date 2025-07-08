@@ -1,4 +1,4 @@
-package org.frank.secureaid.infrastructure;
+package org.frank.secureaid.security.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
