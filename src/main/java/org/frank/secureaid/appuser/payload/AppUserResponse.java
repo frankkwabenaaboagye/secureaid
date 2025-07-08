@@ -1,4 +1,4 @@
-package org.frank.secureaid.service.payload;
+package org.frank.secureaid.appuser.payload;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

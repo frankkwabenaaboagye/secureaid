@@ -1,4 +1,4 @@
-package org.frank.secureaid.service;
+package org.frank.secureaid.appuser;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -6,8 +6,8 @@ import org.frank.secureaid.model.AppRole;
 import org.frank.secureaid.model.AppUser;
 import org.frank.secureaid.repository.AppRoleRepository;
 import org.frank.secureaid.repository.AppUserRepository;
-import org.frank.secureaid.service.payload.AppUserRequest;
-import org.frank.secureaid.service.payload.AppUserResponse;
+import org.frank.secureaid.appuser.payload.AppUserRequest;
+import org.frank.secureaid.appuser.payload.AppUserResponse;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
