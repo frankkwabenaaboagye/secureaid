@@ -10,6 +10,7 @@ import org.frank.secureaid.repository.AppUserRepository;
 import org.frank.secureaid.security.jwt.JwtService;
 import org.frank.secureaid.security.payload.LoginRequest;
 import org.frank.secureaid.security.payload.LoginResponse;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -26,13 +27,13 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class AuthService {
 
-    private final AuthentionManager authentionManager; // TODO :: add this bean to WebSecurityConfig
+    private final AuthenticationManager authenticationManager;
     private final AppUserRepository appUserRepository;
     private final JwtService jwtService;
 
         // authenticate user and return jwt
     public LoginResponse authenticate(LoginRequest request){
-        Authentication authentication = authentionManager.authenticate(
+        Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getUsername(),
                         request.getPassword()
