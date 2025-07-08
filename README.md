@@ -149,6 +149,28 @@
 }
 ```
 
+## Database Schema
+-  PostgreSQL
+
+## Tables
+- app_users
+- donations
+- donor_info
+- recipients
+- app_user_roles
+
+## AWS services and a high-level architecture for SecureAid's deployment
+- Clients (Web/Mobile Apps) connect to api.secureaid.org via HTTPS. 
+- Route 53 resolves api.secureaid.org to the Application Load Balancer (ALB). 
+- The ALB distributes traffic to ECS Fargate Tasks (running Spring Boot API in Docker containers)
+across multiple Availability Zones within a VPC.
+- ECS Fargate Tasks connect to a PostgreSQL RDS instance 
+(also within the VPC, ideally in private subnets with Multi-AZ for high availability).
+- The Spring Boot application retrieves sensitive data 
+encryption keys from AWS KMS and other credentials 
+- (like database passwords, JWT secret) from AWS Secrets Manager.
+- All application logs are streamed to CloudWatch Logs.
+
 
 
 
